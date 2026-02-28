@@ -3,6 +3,471 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brian Golf Coaching | Perth, Ontario | Private Lessons</title>
+  <meta name="description" content="Golf coaching in Perth, Ontario. Private lessons and packages to help you hit it better and score lower. Book your session." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2e;
+      --muted:#9fb0d0;
+      --text:#eaf0ff;
+      --accent:#49d17c;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% -10%, rgba(122,167,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(73,209,124,.18), transparent 55%),
+        radial-gradient(900px 500px at 70% 110%, rgba(122,167,255,.14), transparent 55%),
+        var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px;}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+    .brand{display:flex; gap:10px; align-items:center; text-decoration:none;}
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(73,209,124,.95), rgba(122,167,255,.95));
+      box-shadow: 0 10px 30px rgba(73,209,124,.25);
+    }
+    .brand strong{letter-spacing:.2px}
+    .menu{display:flex; gap:14px; align-items:center}
+    .menu a{opacity:.9; text-decoration:none; padding:8px 10px; border-radius:10px}
+    .menu a:hover{background:rgba(255,255,255,.06)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      background: linear-gradient(135deg, rgba(73,209,124,.95), rgba(73,209,124,.75));
+      color:#03110a;
+      border:0;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 14px 40px rgba(73,209,124,.18);
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      box-shadow:none;
+      border:1px solid var(--line);
+    }
+    .hero{padding:64px 0 34px;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:stretch;
+    }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .h1{
+      font-size: clamp(34px, 5vw, 54px);
+      line-height:1.05;
+      margin:16px 0 10px;
+      letter-spacing:-.6px;
+    }
+    .lead{color: var(--muted); font-size: 18px; margin:0 0 22px; max-width:60ch;}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin: 18px 0 10px;}
+    .stats{
+      display:flex; gap:18px; flex-wrap:wrap;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .stat{
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+    }
+    .card{
+      background: rgba(15,26,46,.70);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .media{
+      height:100%;
+      min-height: 320px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(700px 380px at 20% 25%, rgba(122,167,255,.25), transparent 55%),
+        radial-gradient(700px 380px at 70% 50%, rgba(73,209,124,.18), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      position:relative;
+      overflow:hidden;
+    }
+    .media .tag{
+      position:absolute; left:16px; top:16px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(3,17,10,.55);
+      border:1px solid rgba(73,209,124,.35);
+      color: rgba(234,240,255,.95);
+      font-weight:600;
+      font-size: 13px;
+    }
+    .media .box{
+      position:absolute; left:16px; right:16px; bottom:16px;
+      background: rgba(11,18,32,.62);
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .media .box strong{display:block; margin-bottom:4px}
+    .section{padding: 34px 0;}
+    .section h2{
+      margin:0 0 8px;
+      font-size: 26px;
+      letter-spacing:-.2px;
+    }
+    .section p.sub{margin:0 0 18px; color:var(--muted); max-width:70ch}
+    .three{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    .item h3{margin:0 0 8px; font-size: 18px}
+    .item p{margin:0; color:var(--muted)}
+    .price{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:16px;
+    }
+    .plan{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .plan.featured{
+      border:1px solid rgba(73,209,124,.45);
+      background: linear-gradient(180deg, rgba(73,209,124,.10), rgba(255,255,255,.03));
+      transform: translateY(-2px);
+    }
+    .kicker{color:var(--muted); font-size: 13px}
+    .money{font-size: 30px; margin:6px 0 8px}
+    .per{color:var(--muted); font-size: 13px; margin-top:-4px}
+    ul{margin:0; padding-left:18px; color:var(--muted)}
+    li{margin:6px 0}
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    .contact-card{padding: 18px;}
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .footer{
+      padding: 28px 0 42px;
+      color: var(--muted);
+      border-top:1px solid var(--line);
+      margin-top: 24px;
+      font-size: 14px;
+    }
+    .tiny{font-size: 12px; opacity:.9}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr;}
+      .three{grid-template-columns:1fr;}
+      .price{grid-template-columns:1fr;}
+      .split{grid-template-columns:1fr;}
+      .menu{display:none;}
+      .media{min-height: 280px;}
+      .contact-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>Brian Golf Coaching</strong>
+      </a>
+      <div class="menu" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn" href="#contact">Book a Lesson</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container grid">
+      <div>
+        <div class="pill">🏌️‍♂️ Golf coaching • Perth, Ontario • All skill levels</div>
+        <h1 class="h1">Better contact. Straighter shots. Lower scores.</h1>
+        <p class="lead">
+          Simple, practical coaching that focuses on what actually changes your game:
+          solid strike, predictable start line, and a practice plan you can follow.
+        </p>
+
+        <div class="cta">
+          <a class="btn" href="#contact">Book / Contact</a>
+          <a class="btn secondary" href="#pricing">View pricing</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>✅ Clear priorities</strong><br/>1–2 changes, not 10</div>
+          <div class="stat"><strong>🎯 Practice plan</strong><br/>Drills + structure</div>
+          <div class="stat"><strong>⛳ Real scoring</strong><br/>Range + on-course</div>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="badge">📍 Perth, ON</span>
+          <span class="badge">🕒 60-minute lessons</span>
+          <span class="badge">💬 Packages available</span>
+        </div>
+      </div>
+
+      <div class="media" role="img" aria-label="Golf coaching preview card">
+        <div class="tag">Now booking lessons</div>
+        <div class="box">
+          <strong>What happens in a lesson</strong>
+          <div class="tiny">Quick assessment → 1–2 priority fixes → drills → simple practice plan → follow-up notes</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Services</h2>
+      <p class="sub">Choose what fits your goals — from a tune-up to a full improvement plan.</p>
+
+      <div class="three">
+        <div class="card item">
+          <h3>Private Lessons</h3>
+          <p>Build a repeatable swing and fix your main miss (slice, hook, thin/fat contact, inconsistency).</p>
+        </div>
+        <div class="card item">
+          <h3>Short Game & Putting</h3>
+          <p>Simple systems for chipping, pitching, bunkers, and putting — where most strokes are saved.</p>
+        </div>
+        <div class="card item">
+          <h3>On-Course Coaching</h3>
+          <p>Course strategy, club selection, and decision making — the fastest way to score better.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="section">
+    <div class="container split">
+      <div class="card">
+        <h2>My coaching approach</h2>
+        <p class="sub">
+          We keep it simple: diagnose the cause, pick 1–2 priorities, then build a plan you’ll actually do between sessions.
+        </p>
+
+        <div class="plan" style="margin-bottom:12px;">
+          <div class="kicker">Step 1</div>
+          <h3 style="margin:6px 0 6px;">Assess</h3>
+          <p style="margin:0;color:var(--muted);">Your typical miss, strike pattern, and start line — not just “how it looks.”</p>
+        </div>
+
+        <div class="plan" style="margin-bottom:12px;">
+          <div class="kicker">Step 2</div>
+          <h3 style="margin:6px 0 6px;">Simplify</h3>
+          <p style="margin:0;color:var(--muted);">One feel + one drill. No clutter, no overload.</p>
+        </div>
+
+        <div class="plan">
+          <div class="kicker">Step 3</div>
+          <h3 style="margin:6px 0 6px;">Transfer</h3>
+          <p style="margin:0;color:var(--muted);">Practice structure + on-course cues so your range swing becomes your playing swing.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Who it’s for</h2>
+        <p class="sub">A great fit if you want practical coaching and steady progress.</p>
+        <ul>
+          <li>Beginners building a solid foundation</li>
+          <li>Golfers fighting a slice / hook / inconsistent strike</li>
+          <li>Players who want to score better, not just “swing better”</li>
+          <li>Anyone who wants a simple plan and accountability</li>
+        </ul>
+        <div style="height:12px"></div>
+        <div class="pill">Tip: Your first lesson is about clarity and a plan.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p class="sub">Straightforward rates. Packages save you money and help you stick with a plan.</p>
+
+      <div class="price">
+        <div class="plan">
+          <div class="kicker">Single lesson</div>
+          <div class="money">$125</div>
+          <div class="per">1 hour</div>
+          <ul>
+            <li>Assessment + priorities</li>
+            <li>Drills + practice plan</li>
+            <li>Follow-up notes</li>
+          </ul>
+        </div>
+
+        <div class="plan featured">
+          <div class="kicker">Popular</div>
+          <div class="money">$350</div>
+          <div class="per">3 lessons (save $25)</div>
+          <ul>
+            <li>Build consistency</li>
+            <li>Progress checkpoints</li>
+            <li>Practice structure</li>
+          </ul>
+        </div>
+
+        <div class="plan">
+          <div class="kicker">Best value</div>
+          <div class="money">$550</div>
+          <div class="per">5 lessons (save $75)</div>
+          <ul>
+            <li>Stronger habits</li>
+            <li>More reps + feedback</li>
+            <li>Short game add-ons</li>
+          </ul>
+        </div>
+
+        <div class="plan">
+          <div class="kicker">Commit & improve</div>
+          <div class="money">$990</div>
+          <div class="per">10 lessons (save $260)</div>
+          <ul>
+            <li>Season-long improvement</li>
+            <li>Track progress over time</li>
+            <li>Scoring-focused plan</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height:10px"></div>
+      <p class="tiny">*Savings compared to $125/hr. Any facility/green fees (if applicable) are separate.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Book / Contact</h2>
+      <p class="sub">Send your handicap (or “beginner”), your goal, and your biggest miss. I’ll reply with next steps and times.</p>
+
+      <div class="card contact-card">
+        <div class="contact-grid">
+          <input id="name" placeholder="Your name" />
+          <input id="email" placeholder="Your email" />
+        </div>
+        <div style="height:12px"></div>
+        <input id="goal" placeholder="Goal (e.g., break 90, stop slicing, improve short game)" />
+        <div style="height:12px"></div>
+        <textarea id="msg" placeholder="Message (availability, where you play, what you want to work on)"></textarea>
+        <div style="height:12px"></div>
+
+        <!-- CHANGE this to your preferred receiving address -->
+        <a class="btn" id="sendBtn" href="#">Email me</a>
+        <span class="tiny" style="margin-left:10px; color:var(--muted);">Or email: <strong>you@briangolf.ca</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Brian Golf Coaching • Perth, Ontario • briangolf.ca</div>
+        <div class="tiny">Built with Cloudflare Pages</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple mailto composer (free + easy)
+    const sendBtn = document.getElementById('sendBtn');
+    const toEmail = "you@briangolf.ca"; // <-- CHANGE if you want it to go to your Gmail directly
+
+    sendBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const goal = document.getElementById('goal').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+
+      const subject = encodeURIComponent(`Lesson inquiry${name ? " - " + name : ""}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nGoal: ${goal}\n\nMessage:\n${msg}\n`
+      );
+
+      window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Brian Golf Coaching | Lessons, Clinics & Game Improvement</title>
   <meta name="description" content="Golf coaching for all levels: private lessons, on-course coaching, and practice plans. Book your session today." />
 
